@@ -1,14 +1,15 @@
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
 <div class="panel-heading">
   <h3 class="panel-title">Please Sign In</h3>
-</div>
+</div>  
+
+
 <div class="panel-body">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
     <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "E-mail" %>
   </div>
-
-
 
   <div class="form-group">
     <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
@@ -25,8 +26,9 @@
 
 
   <%= f.submit "Log in", class: "btn btn-lg btn-success btn-block" %>
-
   <% end %>
 
-<%= render "users/shared/links" %>
+
+  <%= render "users/shared/links" %>
 </div>
+
