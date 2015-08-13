@@ -13,8 +13,6 @@
 //= require jquery_ujs
 //= require jquery.min
 
-
-
 //= require sb-admin-2
 
 //= require_tree .
