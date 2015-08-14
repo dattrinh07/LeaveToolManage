@@ -2,7 +2,6 @@ class EmployeesController < ActionController::Base
 
 
   layout 'application'
-
   def index
     @employees = User.all
   end
