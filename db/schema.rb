@@ -13,6 +13,26 @@
 
 ActiveRecord::Schema.define(version: 20150814075319) do
 
+  create_table "request_leaves", force: :cascade do |t|
+    t.datetime "leave_date"
+    t.datetime "comeback_date"
+    t.integer  "request_type",   limit: 4
+    t.text     "description",    limit: 65535
+    t.integer  "status_request", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.datetime "leave_date"
+    t.datetime "comeback_date"
+    t.integer  "request_type",   limit: 4
+    t.text     "description",    limit: 65535
+    t.integer  "status_request", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
