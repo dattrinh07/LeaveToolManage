@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  leave_date: 2015-08-14 11:38:01
+  comeback_date: 2015-08-14 11:38:01
+  request_type: 1
+  description: MyText
+  status_request: 1
+
+two:
+  leave_date: 2015-08-14 11:38:01
+  comeback_date: 2015-08-14 11:38:01
+  request_type: 1
+  description: MyText
+  status_request: 1

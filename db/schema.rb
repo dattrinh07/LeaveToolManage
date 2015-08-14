@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811034345) do
+ActiveRecord::Schema.define(version: 20150814043801) do
+
+  create_table "request_leaves", force: :cascade do |t|
+    t.datetime "leave_date"
+    t.datetime "comeback_date"
+    t.integer  "request_type",   limit: 4
+    t.text     "description",    limit: 65535
+    t.integer  "status_request", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.datetime "leave_date"
+    t.datetime "comeback_date"
+    t.integer  "request_type",   limit: 4
+    t.text     "description",    limit: 65535
+    t.integer  "status_request", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
