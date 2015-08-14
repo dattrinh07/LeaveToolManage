@@ -28,7 +28,7 @@ module Leavetoolmanage
     config.to_prepare do
       Devise::SessionsController.layout "admin_layout"
       Devise::RegistrationsController.layout "admin_layout"
-      Devise::PasswordsController.layout "admin_layout" 
+      Devise::PasswordsController.layout "admin_layout"
     end
 
 
