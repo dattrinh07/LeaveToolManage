@@ -8,6 +8,8 @@ class CreateRequests < ActiveRecord::Migration
       t.integer :status_request
 
       t.timestamps null: false
+      t.integer  :leave_status, default: 0
+      t.integer  :leave_type, default: 0
     end
   end
 end

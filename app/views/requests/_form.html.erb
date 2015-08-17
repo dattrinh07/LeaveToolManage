@@ -1,7 +1,6 @@
 <div class="panel-body">
   <div class="row">
     <div class="col-lg-6">
-
       <%= form_for(@request) do |f| %>
       <% if @request.errors.any? %>
       <div id="error_explanation">
@@ -15,19 +14,17 @@
       </div>
       <% end %>
 
-
-
       <div class="form-group">
         <%= f.label :leave_date %><br>
-        <%= f.datetime_select :leave_date %>
+        <%= f.datetime_select :leave_date, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :comeback_date %><br>
-        <%= f.datetime_select :comeback_date %>
+        <%= f.datetime_select :comeback_date , class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :request_type %><br>
-        <%= f.number_field :request_type, class:"form-control"%>
+        <%= f.select :leave_type, options_for_select(Request.leave_types { |s| [s[0].humanize, s[0]] }, selected: @request.leave_type), {} , class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :description %><br>
@@ -35,7 +32,7 @@
       </div>
       <div class="form-group">
         <%= f.label :status_request %><br>
-        <%= f.number_field :status_request, class:"form-control" %>
+        <%= f.select :leave_status, options_for_select(Request.leave_statuses { |s| [s[0].humanize, s[0]] }, selected: @request.leave_status), {} , class: "form-control" %>
       </div>
 
       <%= f.submit "Submit Button", class:"btn btn-primary"%>
