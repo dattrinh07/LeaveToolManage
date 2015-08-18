@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150814075319) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "full_name",              limit: 255
+    t.string   "role",                   limit: 255
     t.string   "phone",                  limit: 255
     t.string   "address",                limit: 255
     t.string   "skype",                  limit: 255

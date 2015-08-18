@@ -2,6 +2,7 @@ class EmployeesController < ActionController::Base
 
 
   layout 'application'
+
   def index
     @employees = User.all
   end
@@ -22,7 +23,7 @@ class EmployeesController < ActionController::Base
     @employee = User.new(employee_params)
 
     if @employee.save
-      redirect_to @employee
+      redirect_to employees_path
     else
       render 'new'
     end
@@ -32,7 +33,7 @@ class EmployeesController < ActionController::Base
     @employee = User.find(params[:id])
 
     if @employee.update(employee_params)
-      redirect_to @employee
+      redirect_to employees_path
     else
       render 'edit'
     end
@@ -47,6 +48,7 @@ class EmployeesController < ActionController::Base
 
   private
   def employee_params
-    params.require(:employee).permit(:email, :password,:password_confirmation, :full_name, :address, :phone, :skype)
+    params.require(:employee).permit(:email, :password,:full_name, :role, :address, :phone, :skype)
   end
+
 end

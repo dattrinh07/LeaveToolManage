@@ -1,12 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
+
 	<div class="col-lg-12">
 		<h1 class="page-header">Listing Employee</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
 
+		<%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
+	</div>
+
+</div>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -16,29 +16,38 @@
 						<tr>
 							<th>Email</th>
 							<th>Full Name</th>
+							<th>Role</th>
+							<th>Address</th>
+							<th>Phone</th>
+							<th>Skype</th>
 
 							<th colspan="2"></th>
 						</tr>
 					</thead>
-
 					<tbody>
 						<% @employees.each do |employee| %>
 						<tr>
 							<td><%= employee.email %></td>
-							<td><%= employee.full_name %></td>	
+							<td><%= employee.full_name %></td>
+							<td><%= employee.role %></td>
+							<td><%= employee.address %></td>
+							<td><%= employee.phone %></td>	
+							<td><%= employee.skype %></td>
+
+							
 							<td><%= link_to 'Show', employee_path(employee) %></td>
-							<td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-							<td><%= link_to 'Delete', employee_path(employee),method: :destroy,
-								data: {confirm: 'Are u sure????'}
-								%></td>
-							</tr>
-							<% end %>
-						</tbody>
-					</table>
-				</div>
-				<!-- /.panel-body -->
+							<td><%= link_to 'Edit',  edit_employee_path(employee) %></td>
+							<td><%= link_to 'Destroy', employee_path(employee), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
 			</div>
-			<!-- /.panel -->
+			<!-- /.panel-body -->
 		</div>
-		<!-- /.col-lg-12 -->
+		<!-- /.panel -->
 	</div>
+</div>
+
+
+
