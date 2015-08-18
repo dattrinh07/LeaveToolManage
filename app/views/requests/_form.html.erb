@@ -35,7 +35,7 @@
         <%= f.select :leave_status, options_for_select(Request.leave_statuses { |s| [s[0].humanize, s[0]] }, selected: @request.leave_status), {} , class: "form-control" %>
       </div>
 
-      <%= f.submit "Submit Button", class:"btn btn-primary"%>
+      <%= f.submit "Submit", class:"btn btn-primary"%>
       <% end %>
     </div>
   </div>
