@@ -24,7 +24,8 @@
 
         <div class="form-group">
           <label for="disabledSelect">Request type:</label>
-          <%= f.number_field :request_type,  class:"form-control" %>
+
+        <%= f.select :leave_type, options_for_select(Request.leave_types, selected: @request.leave_type), {} , class: "form-control" %>
         </div>
 
         <div class="form-group">
@@ -34,7 +35,7 @@
 
         <div class="form-group">
           <label for="disabledSelect">status_request:</label>
-          <%= f.number_field :status_request, class:"form-control" %>
+          <%= f.select :leave_status, options_for_select(Request.leave_statuses, selected: @request.leave_status), {} , class: "form-control" %>
         </div>
 
       </fieldset>
