@@ -30,10 +30,12 @@
         <%= f.label :description %><br>
         <%= f.text_area :description, class:"form-control", rows:3%>
       </div>
+      <fieldset disabled>
       <div class="form-group">
         <%= f.label :status_request %><br>
         <%= f.select :leave_status, options_for_select(Request.leave_statuses, selected: @request.leave_status), {} , class: "form-control" %>
       </div>
+    </fieldset>
 
       <%= f.submit "Submit", class:"btn btn-primary"%>
       <% end %>

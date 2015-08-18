@@ -71,4 +71,4 @@ class RequestsController < ApplicationController
     def request_params
       params.require(:request).permit(:leave_date, :comeback_date, :leave_type, :description, :leave_status)
     end
-end
+  end

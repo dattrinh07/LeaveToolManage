@@ -19,17 +19,16 @@
 
       <div class="form-group">
         <%= f.label :email %><br>
-        <%= f.text_field :email,  class: "form-control" %>
+        <%= f.text_field :email,  class: "form-control", disabled: @employee.new_record? ? false : true %>
       </div>
 
-    
       <div class="form-group">
        <%= f.label :full_name %><br>
        <%= f.text_field :full_name, class: "form-control", placeholder: "Full Name" %>
      </div>
 
      <div class="form-group">
-     <%= f.label :role %><br>
+       <%= f.label :role %><br>
        <%= f.select :role, options_for_select(User.roles { |s| [s[0].humanize, s[0]] }, selected: @employee.role), {} , class: "form-control" %>
      </div>
 
@@ -49,8 +48,6 @@
      <%= f.label :skype %><br>
      <%= f.text_field :skype, class: "form-control", placeholder: "Skype" %>
    </div>
-
-
 
    <div class="actions">
     <%= f.submit "Submit", class:"btn btn-primary"%>
