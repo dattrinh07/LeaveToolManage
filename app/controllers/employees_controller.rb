@@ -31,7 +31,7 @@ class EmployeesController < ActionController::Base
 
   def update
     @employee = User.find(params[:id])
-
+    
     if @employee.update(employee_params)
       redirect_to employees_path
     else
