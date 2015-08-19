@@ -1,7 +1,8 @@
 class EmployeesController < ActionController::Base
 
-
   layout 'application'
+
+  before_filter :authenticate_user!
 
   def index
     @employees = User.all
@@ -31,7 +32,7 @@ class EmployeesController < ActionController::Base
 
   def update
     @employee = User.find(params[:id])
-    
+
     if @employee.update(employee_params)
       redirect_to employees_path
     else
@@ -46,9 +47,31 @@ class EmployeesController < ActionController::Base
     redirect_to employees_path
   end
 
+
+
+  def update_password
+
+   @employee = User.find(current_user.id)
+
+ end
+
+  def change_password
+    @employee = User.find(current_user.id)
+    if @employee.update_with_password(pd_params)
+      sign_in @employee, :bypass => true
+      redirect_to root_path
+    else
+      render "update_password"
+    end
+
+   end
+
   private
   def employee_params
-    params.require(:employee).permit(:email, :password,:full_name, :role, :address, :phone, :skype)
+    params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype)
   end
 
+  def pd_params
+    params.require(:employee).permit(:current_password, :password, :password_confirmation)
+  end
 end

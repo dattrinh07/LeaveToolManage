@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   resources :welcomes
 
 
-  resources :employees
+  resources :employees do
+    collection do
+      get 'update_password'
+      patch 'change_password'
+    end 
+  end
 
   
   # The priority is based upon order of creation: first created -> highest priority.
