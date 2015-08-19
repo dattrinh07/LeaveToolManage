@@ -24,15 +24,14 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.new(request_params)
+    @request = current_user.requests.new(request_params_for_create)
+    # @request = Request.new(request_params_for_create)
 
     respond_to do |format|
       if @request.save
         format.html { redirect_to requests_path, notice: 'Request was successfully created.' }
-        format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +40,10 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1.json
   def update
     respond_to do |format|
-      if @request.update(request_params)
+      if @request.update(request_params_for_update)
         format.html { redirect_to requests_path, notice: 'Request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +54,6 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_to do |format|
       format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -68,7 +64,15 @@ class RequestsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def request_params
-      params.require(:request).permit(:leave_date, :comeback_date, :leave_type, :description, :leave_status)
+    def request_params_for_create
+      # userid = current_user.id
+      params.require(:request).permit(:leave_date, :comeback_date, :description, :leave_type, :leave_status)
+      # a[:userid] = current_user.id.to_s
+      # a
+    end
+
+    def request_params_for_update
+      userid = current_user.id
+      params.require(:request).permit(:leave_date, :comeback_date, :description, :leave_type, :leave_status)
     end
   end

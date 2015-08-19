@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 20150819030424) do
     t.datetime "leave_date"
     t.datetime "comeback_date"
     t.text     "description",   limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "leave_status",  limit: 255
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.string   "leave_status",  limit: 255,   default: "0"
     t.string   "leave_type",    limit: 255
+    t.integer  "user_id",       limit: 4
   end
 
   create_table "roles", force: :cascade do |t|

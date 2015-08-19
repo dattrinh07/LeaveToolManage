@@ -5,8 +5,9 @@ class CreateRequests < ActiveRecord::Migration
       t.datetime :comeback_date
       t.text :description
       t.timestamps null: false
-      t.string  :leave_status
+      t.string  :leave_status, default: '0'
       t.string  :leave_type
+      t.references :user
     end
   end
 end
