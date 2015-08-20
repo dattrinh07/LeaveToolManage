@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :requests
+  resources :requests do
+    resources :comments
+  end
   root 'welcome#index'
 
 
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
       patch 'change_password'
     end 
   end
-
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

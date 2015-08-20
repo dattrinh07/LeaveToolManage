@@ -10,6 +10,7 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /requests/new
@@ -24,7 +25,7 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = current_user.requests.new(request_params_for_create)
+    @request = current_user.requests.new(request_params)
     # @request = Request.new(request_params_for_create)
 
     respond_to do |format|
@@ -40,7 +41,7 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1.json
   def update
     respond_to do |format|
-      if @request.update(request_params_for_update)
+      if @request.update(request_params)
         format.html { redirect_to requests_path, notice: 'Request was successfully updated.' }
       else
         format.html { render :edit }
@@ -64,15 +65,10 @@ class RequestsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def request_params_for_create
+    def request_params
       # userid = current_user.id
       params.require(:request).permit(:leave_date, :comeback_date, :description, :leave_type, :leave_status)
       # a[:userid] = current_user.id.to_s
       # a
-    end
-
-    def request_params_for_update
-      userid = current_user.id
-      params.require(:request).permit(:leave_date, :comeback_date, :description, :leave_type, :leave_status)
     end
   end
