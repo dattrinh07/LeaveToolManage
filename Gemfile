@@ -49,3 +49,6 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 gem "font-awesome-rails"
+
+gem 'cancancan'
+gem 'rolify'
