@@ -29,7 +29,7 @@
 
      <div class="form-group">
        <%= f.label :role %><br>
-       <%= f.select :role, options_for_select(User.roles { |s| [s[0].humanize, s[0]] }, selected: @employee.role), {} , class: "form-control" %>
+       <%= select_tag :role, options_for_select(Role.all.pluck(:name).map{ |s| [s, s] }) , class: "form-control" %>
      </div>
 
      <div class="form-group">

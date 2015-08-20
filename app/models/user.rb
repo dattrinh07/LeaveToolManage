@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -10,7 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :requests
 
-  enum role: { Hr: "0", ProjectManager: "1", Employee: "3" }
+  # enum role: { Hr: "0", ProjectManager: "1", Employee: "3" }
 
 
   before_validation :generated_password, on: :create

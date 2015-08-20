@@ -22,6 +22,8 @@ class EmployeesController < ActionController::Base
 
   def create
     @employee = User.new(employee_params)
+    @employee.add_role params[:role]
+    # binding.pry
 
     if @employee.save
       redirect_to employees_path
