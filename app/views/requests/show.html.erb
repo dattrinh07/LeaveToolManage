@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="disabledSelect">Request type:</label>
 
-        <%= f.select :leave_type, options_for_select(Request.leave_types, selected: @request.leave_type), {} , class: "form-control" %>
+          <%= f.select :leave_type, options_for_select(Request.leave_types, selected: @request.leave_type), {} , class: "form-control" %>
         </div>
 
         <div class="form-group">
@@ -40,7 +40,25 @@
 
       </fieldset>
       <% end %>
-      <p><%= link_to 'Back', requests_path, class:"btn btn-link"%></p>
-    </div>
+
+      <hr>
+      <h3>Comments</h3>
+      <% @request.comments.each do |comment| %>
+        <b><%= comment.user.full_name %>: </b><%= comment.content %><br>
+     <% end %>
+
+     <br>
+     <h5>Add a comment:</h5>
+     <%= form_for([@request, @comment]) do |f| %>
+     <p>
+      <%= f.text_area :content %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+    <% end %>
+
+    <p><%= link_to 'Back', requests_path, class:"btn btn-link"%></p>
   </div>
+</div>
 </div>
