@@ -235,7 +235,7 @@
                        <% end %>
                    </li>
 
-                    <li>
+                   <li>
                        <%= link_to update_password_employees_path do %>
                        <i class="fa fa-user fa-fw">
                        </i> Change Your Password</a>
@@ -294,6 +294,7 @@
                 </ul>
                
             </li> -->
+            <% if can? :manage, current_user %>
             <li>
                 <%= link_to new_employee_path do %>
                 <i class="fa fa-user fa-fw">
@@ -307,7 +308,7 @@
                 </i>Manage Employee</a>
                 <% end %>
             </li>
-
+            <% end %>
             <li>
                 <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
             </li>
