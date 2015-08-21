@@ -235,9 +235,9 @@
                        <% end %>
                    </li>
 
-                    <li>
+                   <li>
                        <%= link_to update_password_employees_path do %>
-                       <i class="fa fa-user fa-fw">
+                       <i class="fa fa-edit fa-fw">
                        </i> Change Your Password</a>
                        <% end %>
                    </li>
@@ -294,6 +294,7 @@
                 </ul>
                
             </li> -->
+            <% if can? :manage, current_user %>
             <li>
                 <%= link_to new_employee_path do %>
                 <i class="fa fa-user fa-fw">
@@ -308,6 +309,7 @@
                 <% end %>
             </li>
 
+            <% end %>
 
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i>Manage Entity<span class="fa arrow"></span></a>

@@ -15,11 +15,9 @@ class User < ActiveRecord::Base
 
 
   before_validation :generated_password, on: :create
-
   def generated_password 
   	password = Devise.friendly_token.first(8)
   	self.password = "abc123@@@" 
-
   end
 
 end
