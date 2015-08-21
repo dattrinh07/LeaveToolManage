@@ -22,6 +22,10 @@ class HolidayTypesController < ApplicationController
 
 	def edit
 		@holidaytype = HolidayType.find(params[:id])
+		respond_to do |format|
+			format.html
+		    format.js
+	  	end
 	end
 
 	def update
@@ -34,13 +38,12 @@ class HolidayTypesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@holiday = HolidayType.find(params[:id])
+		@holiday.destroy
 
-  def destroy
-    @holiday.destroy
-    respond_to do |format|
-      redirect_to holiday_types_path, notice: 'Holiday Type was successfully destroyed.'
-    end
-  end
+		redirect_to holiday_types_path
+	end
 
 	private
 	def holiday_params

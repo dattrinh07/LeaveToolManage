@@ -1,1 +1,4 @@
 $('#tbl_result').append("<%= escape_javascript render partial: 'holiday_type', locals: {holiday_type: @holiday} %>")
+$( "#btnCloseForm" ).click();
+$("#holiday_type_title").val("");
+$("#holiday_type_description").val("");
