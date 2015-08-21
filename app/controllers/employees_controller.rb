@@ -34,7 +34,7 @@ class EmployeesController < ActionController::Base
 
   def update
     @employee = User.find(params[:id])
-
+    binding.pry
     if @employee.update(employee_params)
       redirect_to employees_path
     else
@@ -70,7 +70,7 @@ class EmployeesController < ActionController::Base
 
   private
   def employee_params
-    params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype)
+    params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype, :role_ids => [])
   end
 
   def pd_params

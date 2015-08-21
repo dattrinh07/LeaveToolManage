@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users 
   resources :welcomes
 
+  resources :holiday_types
 
   resources :employees do
     collection do

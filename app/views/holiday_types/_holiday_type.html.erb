@@ -1,0 +1,8 @@
+<tr>
+	<td><%= holiday_type.title %></td>
+	<td><%= holiday_type.description %></td>
+
+	<td><%= link_to 'Show', holiday_types_path(holiday_type) %></td>
+	<td><%= link_to 'Edit',  edit_holiday_type_path(holiday_type) %></td>
+	<td><%= link_to 'Destroy', holiday_types_path(holiday_type), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
