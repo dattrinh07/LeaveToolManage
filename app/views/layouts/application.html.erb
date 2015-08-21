@@ -308,18 +308,17 @@
                 </i>Manage Employee</a>
                 <% end %>
             </li>
+
             <% end %>
+
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i>Manage Entity<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="panels-wells.html">Panels and Wells</a>
+                        <%= link_to 'List Holiday Type', holiday_types_path %>
                     </li>
                     <li>
-                        <a href="buttons.html">Buttons</a>
+                        <%= link_to 'Add Holiday Type', new_holiday_type_path %>
                     </li>
                     <li>
                         <a href="notifications.html">Notifications</a>
@@ -336,6 +335,10 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+            </li>
+
             <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

@@ -42,11 +42,9 @@
   def update
 
     @employee = User.find(params[:id])
-
     # @employee.remove_role @employee.roles.pluck(:name).join(",")
     # @employee.add_role params[:role]
     params[:employee][:role_ids] ||= []
-
 
     if @employee.update(employee_params)
       redirect_to employees_path
@@ -72,11 +70,16 @@
  def change_password
   @employee = User.find(current_user.id)
 
+
   if @employee.update_with_password(pd_params)
     sign_in @employee, :bypass => true
     redirect_to root_path
   else
     render "update_password"
+
+  private
+  def employee_params
+    params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype, :role_ids => [])
   end
 
 end
