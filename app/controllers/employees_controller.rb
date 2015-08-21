@@ -2,7 +2,8 @@
 
   layout 'application'
 
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
+  
   load_and_authorize_resource :employee, class: "User"
 
 
@@ -76,20 +77,16 @@
     redirect_to root_path
   else
     render "update_password"
+  end 
+
 
   private
   def employee_params
-    params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype, :role_ids => [])
+    params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype)
   end
 
-end
-
-private
-def employee_params
-  params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype)
-end
-
-def pd_params
-  params.require(:employee).permit(:current_password, :password, :password_confirmation)
+  def pd_params
+    params.require(:employee).permit(:current_password, :password, :password_confirmation)
+  end
 end
 end
