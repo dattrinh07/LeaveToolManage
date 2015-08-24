@@ -27,9 +27,9 @@ class RequestsController < ApplicationController
   def create
     @request = current_user.requests.new(request_params)
     # @request = Request.new(request_params_for_create)
-
+    
     respond_to do |format|
-      if @request.save
+      if @request.save!
         format.html { redirect_to requests_path, notice: 'Request was successfully created.' }
       else
         format.html { render :new }
@@ -67,8 +67,8 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       # userid = current_user.id
-      params.require(:request).permit(:leave_date, :comeback_date, :description, :leave_type, :leave_status)
-      # a[:userid] = current_user.id.to_s
-      # a
+      params_value = params.require(:request).permit(:leave_date, :comeback_date, :description, :leave_type, :leave_status)
+      params_value[:holiday_type_id] = params[:holiday_type_id]
+      params_value
     end
   end

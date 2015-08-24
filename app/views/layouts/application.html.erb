@@ -29,9 +29,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <%= link_to root_path do %>
-                    <a class="navbar-brand">Leave Tool Management</a>
-                <% end %>
+                
+                <a class="navbar-brand" href="index.html">Leave Tool Management</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -231,59 +230,59 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                       <li>
-                         <%= link_to edit_user_registration_path do %>
-                         <i class="fa fa-user fa-fw">
-                         </i> User Profile</a>
-                         <% end %>
-                     </li>
-
                      <li>
-                         <%= link_to update_password_employees_path do %>
-                         <i class="fa fa-edit fa-fw">
-                         </i> Change Your Password</a>
-                         <% end %>
-                     </li>
-                 </li>
-                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                 </li>
-                 <li class="divider"></li>
-                 <li>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                    <i class="fa fa-sign-out fa-fw">
-                    </i> Logout</a>
-                    <% end %>
-                </li>
-            </ul>
-            <!-- /.dropdown-user -->
-        </li>
-        <!-- /.dropdown -->
-    </ul>
-    <!-- /.navbar-top-links -->
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li class="sidebar-search">
-                    <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                    <!-- /input-group -->
-                </li>
-                <li>
-                    <%= link_to new_request_path do %>
-                    <i class="fa fa-edit fa-fw"></i> Request Leave</a>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to requests_path do %>
-                    <i class="fa fa-table fa-fw"></i>List Request Leave</a>
-                    <% end %>
-                </li>
+                       <%= link_to edit_user_registration_path do %>
+                       <i class="fa fa-user fa-fw">
+                       </i> User Profile</a>
+                       <% end %>
+                   </li>
+
+                   <li>
+                       <%= link_to update_password_employees_path do %>
+                       <i class="fa fa-edit fa-fw">
+                       </i> Change Your Password</a>
+                       <% end %>
+                   </li>
+               </li>
+               <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+               </li>
+               <li class="divider"></li>
+               <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out fa-fw">
+                </i> Logout</a>
+                <% end %>
+            </li>
+        </ul>
+        <!-- /.dropdown-user -->
+    </li>
+    <!-- /.dropdown -->
+</ul>
+<!-- /.navbar-top-links -->
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <%= link_to new_request_path do %>
+                <i class="fa fa-edit fa-fw"></i> Request Leave</a>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to requests_path do %>
+                <i class="fa fa-table fa-fw"></i>List Request Leave</a>
+                <% end %>
+            </li>
 
             <!-- <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -319,9 +318,6 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <%= link_to 'List Holiday Type', holiday_types_path %>
-                    </li>
-                    <li>
-                        <%= link_to 'Add Holiday Type', new_holiday_type_path %>
                     </li>
                     <li>
                         <a href="notifications.html">Notifications</a>

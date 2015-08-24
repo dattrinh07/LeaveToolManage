@@ -27,10 +27,11 @@
             <tbody>
               <% @requests.each do |request| %>
                  <tr class="odd gradeX">
+
                 <td><%= request.comeback_date.strftime("%d/%m/%Y-%H:%M") %></td>
                 <td><%= request.leave_date.strftime("%d/%m/%Y-%H:%M") %></td>
                 <td><%= request.description %></td>
-                <td><%= request.leave_type %></td>
+                <td><%= HolidayType.find(request.holiday_type_id).title %></td>
                 <td><%= request.leave_status %></td>
                 <td><%= request.comments.count() %></td>
                 <td><%= link_to 'Detail', request %></td>

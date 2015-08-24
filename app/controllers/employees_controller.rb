@@ -83,6 +83,7 @@ class EmployeesController < ActionController::Base
     end
 
   end
+  
   private
   def employee_params
     params.require(:employee).permit(:email,:password,:full_name, :role, :address, :phone, :skype)

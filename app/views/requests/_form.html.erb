@@ -22,20 +22,24 @@
         <%= f.label :comeback_date %><br>
         <%= f.datetime_select :comeback_date , class: "form-control" %>
       </div>
+
+
       <div class="form-group">
         <%= f.label :request_type %><br>
-        <%= f.select :leave_type, options_for_select(Request.leave_types, selected: @request.leave_type), {} , class: "form-control" %>
+        <%= select_tag :holiday_type_id, options_for_select(HolidayType.all.map{ |s| [s.title, s.id] }), class: "form-control" %>
       </div>
+
+
       <div class="form-group">
         <%= f.label :description %><br>
         <%= f.text_area :description, class:"form-control", rows:3%>
       </div>
       <fieldset disabled>
-      <div class="form-group">
-        <%= f.label :status_request %><br>
-        <%= f.select :leave_status, options_for_select(Request.leave_statuses, selected: @request.leave_status), {} , class: "form-control" %>
-      </div>
-    </fieldset>
+        <div class="form-group">
+          <%= f.label :status_request %><br>
+          <%= f.select :leave_status, options_for_select(Request.leave_statuses, selected: @request.leave_status), {} , class: "form-control" %>
+        </div>
+      </fieldset>
 
       <%= f.submit "Submit", class:"btn btn-primary"%>
       <% end %>

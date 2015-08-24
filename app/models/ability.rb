@@ -9,8 +9,10 @@ class Ability
     elsif user.has_role? (:Hr)
       can :manage, User
       # can :read, Project
+    elsif user.has_role? (:PM)
+      # can :read, Project
     elsif user.has_role? (:Employee)
       # can :read, Project
-    end 
+    end
   end
 end

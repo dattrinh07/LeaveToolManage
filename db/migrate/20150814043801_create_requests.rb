@@ -6,7 +6,7 @@ class CreateRequests < ActiveRecord::Migration
       t.text :description
       t.timestamps null: false
       t.string  :leave_status, default: '0'
-      t.string  :leave_type
+      t.integer  :holiday_type_id
       t.references :user
     end
   end
