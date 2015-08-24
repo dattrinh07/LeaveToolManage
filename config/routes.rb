@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'project/index'
-
   resources :requests do
     resources :comments
   end
@@ -10,6 +8,7 @@ Rails.application.routes.draw do
   
   devise_for :users 
   resources :welcomes
+  resources :projects
 
   resources :holiday_types
 
