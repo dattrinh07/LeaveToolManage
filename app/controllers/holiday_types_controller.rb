@@ -16,25 +16,25 @@ class HolidayTypesController < ApplicationController
 			respond_to do |format|
 		    	#format.html {redirect_to holiday_types_path}
 		    	format.js
-		  	end
-	  	end
+		    end
+		end
 	end
 
 	def edit
 		@holidaytype = HolidayType.find(params[:id])
 		respond_to do |format|
 			format.html
-		    format.js
-	  	end
+			format.js
+		end
 	end
 
 	def update
 		@holiday = HolidayType.find(params[:id])
 
 		if @holiday.update(holiday_params)
-			redirect_to holiday_types_path
-		else
-			render 'edit'
+			respond_to do |format|
+		    	format.js
+		    end
 		end
 	end
 

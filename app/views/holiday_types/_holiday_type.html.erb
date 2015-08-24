@@ -1,6 +1,6 @@
-<tr>
-	<td><%= holiday_type.title %></td>
-	<td><%= holiday_type.description %></td>
+<tr class=<%=holiday_type.id%> >
+	<td class="title-value"><%= holiday_type.title %></td>
+	<td class="desc-value"><%= holiday_type.description %></td>
 
 	<td><%= link_to 'Show', holiday_types_path(holiday_type) %></td>
 	<td><%= link_to 'Edit',  edit_holiday_type_path(holiday_type), :remote => true, "data-toggle":"modal", "data-target":"#myModalEdit" %></td>
