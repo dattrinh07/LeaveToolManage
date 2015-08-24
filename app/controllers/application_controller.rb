@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = exception.message
+    redirect_to root_path
+  end
+
+  
   protected
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) << :name

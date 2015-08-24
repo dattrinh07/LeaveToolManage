@@ -16,16 +16,16 @@ class HolidayTypesController < ApplicationController
 			respond_to do |format|
 		    	#format.html {redirect_to holiday_types_path}
 		    	format.js
-		  	end
-	  	end
+		    end
+		end
 	end
 
 	def edit
 		@holidaytype = HolidayType.find(params[:id])
 		respond_to do |format|
 			format.html
-		    format.js
-	  	end
+			format.js
+		end
 	end
 
 	def update
@@ -49,5 +49,4 @@ class HolidayTypesController < ApplicationController
 	def holiday_params
 		params.require(:holiday_type).permit(:title, :description)
 	end
-
 end
