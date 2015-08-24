@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'project/index'
+
   resources :requests do
     resources :comments
   end
