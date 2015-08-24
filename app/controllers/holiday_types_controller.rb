@@ -32,9 +32,9 @@ class HolidayTypesController < ApplicationController
 		@holiday = HolidayType.find(params[:id])
 
 		if @holiday.update(holiday_params)
-			redirect_to holiday_types_path
-		else
-			render 'edit'
+			respond_to do |format|
+		    	format.js
+		    end
 		end
 	end
 
