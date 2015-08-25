@@ -2,3 +2,5 @@ $(".edit_project #btnCloseForm").click();
 
 $('.<%= @project.id%> .title-value').html('<%= @project.title%>')
 $('.<%= @project.id%> .desc-value').html('<%= @project.description%>')
+$('.<%= @project.id%> .pm-value').html('<%= User.find(@project.project_manage_id).full_name%>')
+

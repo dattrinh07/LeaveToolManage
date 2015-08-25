@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824094752) do
+ActiveRecord::Schema.define(version: 20150825081349) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20150824094752) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "project_users", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "project_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "project_users", ["project_id"], name: "index_project_users_on_project_id", using: :btree
+  add_index "project_users", ["user_id"], name: "index_project_users_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "title",             limit: 255
@@ -88,4 +98,6 @@ ActiveRecord::Schema.define(version: 20150824094752) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "project_users", "projects"
+  add_foreign_key "project_users", "users"
 end

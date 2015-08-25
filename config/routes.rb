@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   
   devise_for :users 
   resources :welcomes
-  resources :projects
+  resources :projects do
+    collection do
+      post :add_member
+    end
+  end
+  resources :project_users
 
   resources :holiday_types
 

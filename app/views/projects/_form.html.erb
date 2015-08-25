@@ -17,13 +17,18 @@
 			<% end %>
 
 			<div class="form-group">
-				<%= f.label :title %><br>
+				<label>Title:</label><br>
 				<%= f.text_field :title , class: "form-control"%>
 			</div>
 
 			<div class="form-group">
-				<%= f.label :description %><br>
+				<label>Description:</label><br>
 				<%= f.text_area :description , class: "form-control"%>
+			</div>
+
+			<div class="form-group">
+				<label>Project Manager:</label><br>
+				<%= select_tag :project_manage_id, options_for_select(User.all.map{ |s| [s.full_name, s.id] }), class: "form-control" %>
 			</div>
 
 			<button type="button" id="btnCloseForm" class="btn btn-default" data-dismiss="modal">Close</button>

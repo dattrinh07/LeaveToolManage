@@ -1,9 +1,20 @@
 <tr class=<%=project_item.id%> >
-	<td class="title-value"><%= project_item.title %></td>
+	<td class="title-value" style="font-weight:bold"><%= project_item.title %></td>
 	<td class="desc-value"><%= project_item.description %></td>
-	<td class="desc-value">Abdel</td>
+	<td class="pm-value"><%= User.find(project_item.project_manage_id).full_name%></td>
+	<td class="pm-value">Name 1 | Name 2 | Name 3| Name 2 | Name 3| Name 2 | Name 3</td>
 
-	<td><%= link_to 'Show', project_path(project_item) %></td>
-	<td><%= link_to 'Edit',  edit_project_path(project_item), :remote => true, "data-toggle":"modal", "data-target":"#myModalEdit" %></td>
-	<td><%= link_to 'Destroy', project_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td>
+		<a class="btn btn-default btn-circle" data-toggle="modal" data-target="#myModalAddMember" href="#">
+			<i class="fa fa-user"></i>
+		</a>
+
+		<%= link_to edit_project_path(project_item), :remote => true, "data-toggle":"modal", "data-target":"#myModalEdit", class: "btn btn-primary btn-circle" do %>
+		<i class="fa fa-pencil"></i>
+		<% end %>
+
+		<%= link_to project_path(project_item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-circle"  do %>
+		<i class="fa fa-times"></i>
+		<% end %>
+	</td>
 </tr>

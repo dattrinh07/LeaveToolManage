@@ -67,7 +67,6 @@ class EmployeesController < ActionController::Base
     authorize! :destroy, @employee
   end
 
-
   def update_password
     @employee = User.find(current_user.id)
   end

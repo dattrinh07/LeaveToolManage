@@ -1,0 +1,74 @@
+<div class="chat-panel panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-list-alt fa-fw"></i>
+        Members List
+    </div>
+    <!-- /.panel-heading -->
+
+    <!-- /.panel-body -->
+    <div class="panel-footer">
+        <div class="input-group">
+            <input id="btn-input" type="text" class="form-control input-sm" placeholder="...">
+            <span class="input-group-btn">
+                <button class="btn btn-warning btn-sm" id="btn-chat">
+                    Search
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="panel-body" style="200px !iportants">
+        <ul class="chat">
+            <li class="right clearfix">
+                <!-- <span class="chat-img pull-right">
+                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle">
+                </span>
+                <div class="chat-body clearfix">
+                    <div class="header">
+                        <small class=" text-muted">
+                        <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
+                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                    </p>
+                </div> -->
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="panel-body" style="height:220px">
+	<div class="row">
+		<div class="col-lg-6">
+			<%= form_for(@user, url: add_member_projects_path, remote: true) do |f| %>
+			<% if @user.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@user.errors.count, "error") %> prohibited this holiday from being saved:</h2>
+
+				<ul>
+					<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
+
+			<div class="form-group">
+				<label>Current Members</label>
+				<div class="checkbox"  style="overflow-y:scroll; width:450px; height:100px">
+					<label>
+						<% User.all.each do |part_type| %>
+						<%= check_box_tag 'type_id_eq[]', part_type.id %>
+						<label><%= part_type.full_name %></label><br>
+						<% end %>
+					</label>
+				</div>
+			</div>
+
+			<button type="button" id="btnCloseForm" class="btn btn-default" data-dismiss="modal">Close</button>
+			<%= f.submit "Done", class:"btn btn-primary"%>
+			<% end %>
+		</div>
+	</div>
+</div>
